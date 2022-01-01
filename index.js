@@ -15,6 +15,10 @@ app.get("/api/img/", (req, res) => {
   res.json("hello");
   res.end();
 });
+app.get("/", (req, res) => {
+  res.json("hello welcome");
+  res.end();
+});
 // app.get("/:id", (req, res) => {
 //   const id = req.params["id"];
 //   res.write(`<h1> hello ${id} </h1>`);
