@@ -1,6 +1,17 @@
 const express = require("express");
 const router = express.Router();
+const cors = require("cors");
 
+app.use(cors());
+/// IMgaes ///
+app.use(function (req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept"
+  );
+  next();
+});
 const blogs = [
   {
     image:
@@ -19,7 +30,7 @@ const blogs = [
 router.get("/", (req, res) => {
   //   res.json("<h1>all blogs  </h1>");
   res.status(200).send(blogs);
-  res.json(blogs);
+  // res.json(blogs);
   //   res.json(`${blogs}`);
   res.end();
 });
