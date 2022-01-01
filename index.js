@@ -9,6 +9,15 @@ app.use("/api/v1/blogs", router);
 // Use CORS
 app.use(cors());
 /// IMgaes ///
+app.use(function (req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept"
+  );
+  next();
+});
+
 const image = "http://localhost:3000/static/media/fitMain.35faee75.jpg";
 // const image ={ link : https://vaibhav-blog-app.netlify.app/static/media/fitMain.35faee75.jpg ; }
 app.get("/api/img/", (req, res) => {
