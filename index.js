@@ -7,16 +7,22 @@ app.use(express.json());
 ///route
 app.use("/api/v1/blogs", router);
 // Use CORS
-app.use(cors());
+// const cors = require('cors');
+const corsOptions = {
+  origin: "http://localhost:3000",
+  credentials: true, //access-control-allow-credentials:true
+  optionSuccessStatus: 200,
+};
+app.use(cors(corsOptions));
 /// IMgaes ///
-app.use(function (req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header(
-    "Access-Control-Allow-Headers",
-    "Origin, X-Requested-With, Content-Type, Accept"
-  );
-  next();
-});
+// app.use(function (req, res, next) {
+//   res.header("Access-Control-Allow-Origin", "*");
+//   res.header(
+//     "Access-Control-Allow-Headers",
+//     "Origin, X-Requested-With, Content-Type, Accept"
+//   );
+//   next();
+// });
 
 const image = "http://localhost:3000/static/media/fitMain.35faee75.jpg";
 // const image ={ link : https://vaibhav-blog-app.netlify.app/static/media/fitMain.35faee75.jpg ; }
